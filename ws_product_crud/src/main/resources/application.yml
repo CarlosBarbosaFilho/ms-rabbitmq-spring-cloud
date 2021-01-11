@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ws_crud_product
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: cbgomes
+    password: cbgomes
+  application:
+    name: crud-product
+
+ws:
+  product:
+    rabbitmq:
+      exchange: ws-products
+      routingkey: ws-products.routingkey
+
+security:
+  jwt:
+    token:
+      secret-key: chave-microservice
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/registry/eureka
+

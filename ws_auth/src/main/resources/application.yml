@@ -1,0 +1,25 @@
+security:
+  jwt:
+    token:
+      secret-key: chave-microservice
+      expire-length: 360000
+server:
+  port: 8083
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost/ws_auth?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  application:
+    name: auth
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/registry/eureka
